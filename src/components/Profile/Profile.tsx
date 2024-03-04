@@ -1,15 +1,18 @@
 import React from 'react';
 import s from './Profile.module.css';
 import { MyPosts } from './MyPosts/MyPosts';
+import { ProfileInfo } from './ProfileInfo/ProfileInfo';
+import { PostsDataType } from '../..';
 
-export const Profile = () => {
+type ProfileProps = {
+  postsData: PostsDataType[];
+};
+
+export const Profile = (props: ProfileProps) => {
   return (
     <div className={s.content}>
-      <div>
-        <img src="/" alt="backgroung" />
-      </div>
-      <div>ava + info</div>
-      <MyPosts />
+      <ProfileInfo />
+      <MyPosts postsData={props.postsData} />
     </div>
   );
 };
